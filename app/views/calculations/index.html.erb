@@ -1,0 +1,22 @@
+<!-- form_forでユーザーにinputをさせる -->
+<% @title = '計算フォーム' %>
+<h1><%= @title %></h1>
+<div>
+  <%= form_for(@calculation) do |f| %>
+    <div>
+      <%= f.label :borrowing, '借入金額' %>
+      <%= f.number_field :borrowing, required: true %>万円
+    </div>
+    <div>
+      <%= f.label :borrowing_period, '借入期間' %>
+      <%= f.number_field :borrowing_period, required: true %>年
+    </div>
+    <div>
+      <%= f.label :interest_rate, '金利' %>
+      <%= f.number_field :interest_rate, :step => 0.001, required: true %>%
+    </div>
+    <div>
+      <%= f.submit '計算する' %>
+    </div>
+  <% end %>
+</div>

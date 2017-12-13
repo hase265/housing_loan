@@ -1,0 +1,11 @@
+<!-- indexで入力した数値から、総返済額、毎月返済額、ある時点での残債を表示する -->
+<% @title = '総返済額' %>
+<h1><%= @title %></h1>
+<div>
+  <div>
+    <%= @result %>万円
+  </div>
+  <div>
+    <%= link_to '計算画面に戻る', :calculations %>
+  </div>
+</div>

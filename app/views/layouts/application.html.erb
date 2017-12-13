@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HousingLoanCodingTest</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <%= content_tag(:span, flash.notice, class: 'notice') if flash.notice %>
+        <%= content_tag(:span, flash.alert, class: 'alert') if flash.alert %>
+      </header>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <footer>
+      </footer>
+    </div>
+  </body>
+</html>
