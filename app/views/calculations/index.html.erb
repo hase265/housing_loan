@@ -16,6 +16,9 @@
       <%= f.number_field :interest_rate, :step => 0.001, required: true %>%
     </div>
     <div>
+      <%= f.label :time_to_check, '残債を求めたいタイミング' %>
+      <%= f.month_field :time_to_check %>
+    <div>
       <%= f.submit '毎月の返済額を計算する' %>
     </div>
   <% end %>
