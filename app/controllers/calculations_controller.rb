@@ -13,7 +13,7 @@ class CalculationsController < ApplicationController
     r = data.interest_rate/12/100
     s = data.loan_amount
     n = data.borrowing_month
-    @result = (n * r * s * (1 + r) ** n / ((1 + r) ** n - 1)).round(2)
+    @result = (r * s * (1 + r) ** n / ((1 + r) ** n - 1)).round(2)
   end
 
   private
