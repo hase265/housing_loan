@@ -10,7 +10,10 @@ class CalculationsController < ApplicationController
 
   def calculate
     data = Calculation.last
-    @result = (data.borrowing * data.borrowing_period * data.interest_rate).round
+    r = data.interest_rate/12/100
+    s = data.borrowing
+    n = data.borrowing_period
+    @result = (n * r * s * (1 + r) ** n / ((1 + r) ** n - 1)).round(2)
   end
 
   private
