@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213114114) do
+ActiveRecord::Schema.define(version: 20171214155706) do
 
   create_table "calculations", force: :cascade do |t|
-    t.integer "borrowing", null: false
-    t.integer "borrowing_period", null: false
+    t.integer "loan_amount", null: false
+    t.integer "borrowing_month", null: false
     t.float "interest_rate", null: false
     t.datetime "time_to_check"
     t.datetime "created_at", null: false

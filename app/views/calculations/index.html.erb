@@ -4,12 +4,12 @@
 <div>
   <%= form_for(@calculation) do |f| %>
     <div>
-      <%= f.label :borrowing, '借入金額' %>
-      <%= f.number_field :borrowing, required: true %>万円
+      <%= f.label :loan_amount, '借入金額' %>
+      <%= f.number_field :loan_amount, required: true %>万円
     </div>
     <div>
-      <%= f.label :borrowing_period, '借入期間' %>
-      <%= f.number_field :borrowing_period, required: true %>ヶ月
+      <%= f.label :borrowing_month, '借入期間' %>
+      <%= f.number_field :borrowing_month, required: true %>ヶ月
     </div>
     <div>
       <%= f.label :interest_rate, '金利' %>
