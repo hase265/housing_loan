@@ -1,25 +1,15 @@
 class CalculationsController < ApplicationController
-  def index
-    @calculation = Calculation.new
-  end
+  def index; end
 
-  def create
-    Calculation.new(calculation_params).save
-    redirect_to :result_calculations
-  end
-
-  def calculate
-    data = Calculation.last
-    r = data.interest_rate/12/100
-    s = data.loan_amount
-    n = data.borrowing_month
-    @result = (r * s * (1 + r) ** n / ((1 + r) ** n - 1)).round(2)
-  end
-
-  private
-  def calculation_params
-    params.require(:calculation).permit(
-      :loan_amount, :borrowing_month, :interest_rate
-    )
+  def result
+    # calculationメソッドという名前では他の計算機能を足す時に被ってしまうかもしれないので、
+    # resultに変更
+    # controllerでクライアントとのやりとり、serviceで、内部の処理というように分担
+    @result = CalculationService.new(
+      loan_amount: params[:loan_amount],
+      borrowing_month: params[:borrowing_month],
+      interest_rate: params[:interest_rate],
+      time_to_check: params[:time_to_check]
+    ).call
   end
 end

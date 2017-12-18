@@ -1,22 +1,26 @@
-<!-- form_forでユーザーにinputをさせる -->
+<!-- form_tagでユーザーにinputをさせる -->
+<!-- createをする必要がないため、form_tagに変更 -->
 <% @title = '計算フォーム' %>
 <h1><%= @title %></h1>
 <div>
-  <%= form_for(@calculation) do |f| %>
+  <%= form_tag ('/calculations/result') do %>
     <div>
-      <%= f.label :loan_amount, '借入金額' %>
-      <%= f.number_field :loan_amount, required: true %>万円
+      <%= label_tag :loan_amount, '借入金額' %>
+      <%= number_field_tag :loan_amount, required: true %>万円
     </div>
     <div>
-      <%= f.label :borrowing_month, '借入期間' %>
-      <%= f.number_field :borrowing_month, required: true %>ヶ月
+      <%= label_tag :borrowing_month, '借入期間' %>
+      <%= number_field_tag :borrowing_month, required: true %>ヶ月
     </div>
     <div>
-      <%= f.label :interest_rate, '金利' %>
-      <%= f.number_field :interest_rate, :step => 0.001, required: true %>%
+      <%= label_tag :interest_rate, '金利' %>
+      <%= number_field_tag :interest_rate, :step => 0.001, required: true %>%
     </div>
     <div>
-      <%= f.submit '毎月の返済額を計算する' %>
+      <%= label_tag :time_to_check, '残債を求めたいタイミング' %>
+      <%= month_field_tag :time_to_check , required: true %>
+    <div>
+      <%= submit_tag 'ある時点での残債' %>
     </div>
   <% end %>
 </div>

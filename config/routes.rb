@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  # モデルを消したため、createを削除
   root 'top#index'
-  resources :calculations, only: [:index, :create] do
+  resources :calculations, only: [:index] do
     collection do
-      get '/result', to: 'calculations#calculate'
+      post 'result'
     end
   end
 end
