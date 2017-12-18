@@ -1,5 +1,4 @@
 class CalculationService
-  require 'date'
   attr_reader :loan_amount, :borrowing_month, :interest_rate, :time_to_check
 
   def initialize(loan_amount:, borrowing_month:, interest_rate:, time_to_check:)
@@ -27,6 +26,16 @@ class CalculationService
     # 1年を12ヶ月に直し、月の差分を出す
     today_months = today.year * 12 + today.month
     someday_months = someday.year * 12 + someday.month
-    someday_months - today_months
+    someday_months - today_months + 1
+
+    # 残債を求めたいタイミングより借入期間が短かったら、計算画面をrenderということを
+    # したかったですが、undefined method 'render'のエラー。
+    # そもそもここでrenderの設定したらcontrollerに渡して@resultに入れるようになりおかしい。
+    # controllerで設定するにも、どうやればいいのか分からず。
+    # if today_months + borrowing_month < someday_months
+    #   render 'calculations/index'
+    # else
+    #   someday_months - today_months + 1
+    # end
   end
 end

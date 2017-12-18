@@ -11,6 +11,7 @@
   <body>
     <div class="wrapper">
       <header>
+        <%= content_tag(:span, flash.alert, class: 'alert') if flash.alert %>
       </header>
       <div class="container">
         <%= yield %>
