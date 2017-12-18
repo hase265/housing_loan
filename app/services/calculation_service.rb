@@ -32,6 +32,7 @@ class CalculationService
     # したかったですが、undefined method 'render'のエラー。
     # そもそもここでrenderの設定したらcontrollerに渡して@resultに入れるようになりおかしい。
     # controllerで設定するにも、どうやればいいのか分からず。
+    # flashメッセージを入れようとするも、undefined method 'flash'の表示
     # if today_months + borrowing_month < someday_months
     #   render 'calculations/index'
     # else
