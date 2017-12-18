@@ -1,4 +1,5 @@
-<!-- form_forでユーザーにinputをさせる -->
+<!-- form_tagでユーザーにinputをさせる -->
+<!-- createをする必要がないため、form_tagに変更 -->
 <% @title = '計算フォーム' %>
 <h1><%= @title %></h1>
 <div>
@@ -17,9 +18,9 @@
     </div>
     <div>
       <%= label_tag :time_to_check, '残債を求めたいタイミング' %>
-      <%= month_field_tag :time_to_check %>
+      <%= month_field_tag :time_to_check , required: true %>
     <div>
-      <%= submit_tag '毎月の返済額を計算する' %>
+      <%= submit_tag 'ある時点での残債' %>
     </div>
   <% end %>
 </div>
